@@ -1,2 +1,16 @@
-# adhoc_UM_analyses
-portfolio of interesting ad hoc analyses I completed for enrollment and sustainability offices
+# Ad Hoc UM Analyses
+This repository contains a portfolio of interesting ad hoc analyses that I have completed for the Enrollment and Sustainability Offices at the University of Montana. Each rendered Jupyter notebook in this repository is dedicated to a specific analysis, providing insights and supporting decision-making in these departments.
+
+The `dumpster_fullness.html` notebook is an analysis of data collected in a series of audits of dumpsters on campus. The focus of the analysis is identifying dumpsters that are consistently under 1/2 full. To answer this question some data wrangling was needed to transform the hand-filled spreadsheet into data prepped for analysis. The 'crux' of the analysis was formulating a regex rule to fit various dumpster names into larger categories despite inconsistencies in dumpster naming conventions. This was a very fun quick project for me where simple python data manipulation skills could have a big impact.
+
+The `tf-idf-majors.html` notebook provides an analysis of the most distinctive majors at various universities by utilizing the TF-IDF (Term Frequency-Inverse Document Frequency) statistical measure. This measure helps to identify which words (in this case, majors) are most important to a document (a university's major list) relative to a corpus (all universities' major lists). The notebook is based on national clearinghouse dataset on the destinations of lost UM admits, and was completed along with other analyses focused on identifying strategies to increase enrollment.
+
+The `commuter_survey_2.html` notebook is an in-depth analysis of a survey conducted to understand the commuting habits and environmental concerns of the University of Montana community. This analysis helps in identifying key factors that influence commuting choices and the potential support for a Carbon Neutral Commuter program. The notebook includes data cleaning, exploratory data analysis, and visualization of survey responses. An OpenAI API calling script was used to categorize the hundreds of open-response answers after a separate LDA analysis which identified topics in the answers.
+
+The `air_travel_breakdown.html` notebook provides a quick analysis of air travel expenses for different athletic teams at the University of Montana. Several excel files were combined, with dollars to miles conversions. Mile counts were grouped by team for each year.
+
+The `business_air_travel_breakdown.html` notebook provides a detailed analysis of business air travel expenses across various departments at the University of Montana. This analysis is crucial for understanding travel expenditure patterns and identifying potential areas for travel reduction. Because transactions are not directly associated with departments, but are rather just $ amounts with natural language descriptions, it took several steps to associate the transactions with departments.
+
+1. Faculty/staff last names were extracted from the description using regex rules that sought to handle various edge cases across 20k+ rows of data with inconsistent formatting.
+2. A webscraping script was deployed to scrape departments associated with faculty/staff names from the UM directory webpage.
+3. Transaction totals were summed by department groups, and displayed in a final chart which was presented to the sustainability office.
